@@ -1,16 +1,50 @@
-#btn-to-top{
-    position: fixed;
-    z-index: 100;
-    width: 50px;
-    height: 50px;
-    right: 50px;
-    bottom: -50px;
-    border: none;
-    color: #fff;
-    border-radius: 100%;
-    background-color: #252A41;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    transition: bottom 800ms;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+.search {
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid gray;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.search:hover {
+  background-color: #e6e6e6;
+  transform: scale(1.1);
+}
+
+.search:active {
+  background-color: #d6d6d6;
+}
+
+.btn-to-top {
+  position: fixed;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  right: 50px;
+  bottom: -50px;
+  border: none;
+  color: #fff;
+  border-radius: 100%;
+  background-color: #252a41;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  transition: bottom 800ms;
 }
