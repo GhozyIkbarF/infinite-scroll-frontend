@@ -1,5 +1,6 @@
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 const btn_search = document.getElementById('btn-search-photo');
+const btn_to_top = document.getElementById('btn-to-top');
 
 let photo = []
 const accessKey = '-f839JHMlc53y0wtPSS_OCwqZOHbx9j6aKBzEr7UaG8';
@@ -19,3 +20,13 @@ async function getPhoto(){
         console.log(error);
     }
 }
+
+window.addEventListener('scroll', () => {
+    const section1 = document.getElementById('section-1');
+    const wsy = window.scrollY;
+    wsy > 150 ? btn_to_top.style.bottom = '50px' : btn_to_top.style.bottom = '-50px'
+});
+
+btn_to_top.addEventListener('click', () => {
+    window.scrollTo(0, 0);
+});
