@@ -6,6 +6,7 @@ const headers = {
   Authorization: `Client-ID ${accessKey}`,
 };
 
+const btn_to_top = document.getElementById("btn-to-top");
 const btn_search = document.getElementById("btn-search-photo");
 const imagesContainer = document.getElementById("imagesContainer");
 let currentPage = 1;
@@ -34,3 +35,14 @@ function imageElement(images) {
     imagesContainer.append(image);
   });
 }
+
+window.addEventListener("scroll", () => {
+  const wsy = window.scrollY;
+  wsy > 150
+    ? (btn_to_top.style.bottom = "50px")
+    : (btn_to_top.style.bottom = "-50px");
+});
+
+btn_to_top.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});
