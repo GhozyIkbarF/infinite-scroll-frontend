@@ -1,3 +1,4 @@
+import process from 'process';
 const accessKey = process.env.JS_APP_UNSPLASH_ACCESS_KEY
 const bashURL = "https://api.unsplash.com";
 const headers = {
