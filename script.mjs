@@ -19,7 +19,7 @@ window.addEventListener("scroll", () => {
   const wsy = window.scrollY;
   wsy > 150
     ? (btn_to_top.style.bottom = "50px")
-    : (btn_to_top.style.bottom = "-50px");
+    : (btn_to_top.style.bottom = "-70px");
   
   if (!isLoaded && ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-200)) getPhoto() 
 });
