@@ -1,4 +1,4 @@
-const accessKey = process.env.JS_APP_UNSPLASH_ACCESS_KEY
+const accessKey = process.env.JS_APP_UNSPLASH_ACCESS_KEY;
 const bashURL = "https://api.unsplash.com";
 const headers = {
   Authorization: `Client-ID ${accessKey}`,
@@ -20,26 +20,29 @@ window.addEventListener("scroll", () => {
   wsy > 150
     ? (btn_to_top.style.bottom = "50px")
     : (btn_to_top.style.bottom = "-70px");
-  
-  if (!isLoaded && ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-200)) getPhoto() 
+
+  if (
+    !isLoaded &&
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 200
+  )
+    getPhoto();
 });
 
 async function getPhoto() {
   try {
     isLoaded = true;
     const response = await fetch(
-      `${bashURL}/photos/?page=${currentPage}&per_page=5`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Client-ID ${accessKey}`,
-        }
+      `${bashURL}/photos/?page=${currentPage}&per_page=5`,
+      {
+        method: "GET",
+        headers: headers,
       }
     );
     const photo = await response.json();
     imageElement(photo);
   } catch (error) {
     throw error;
-  }finally {
+  } finally {
     isLoaded = false;
   }
 }
@@ -53,4 +56,3 @@ function imageElement(images) {
   });
   currentPage++;
 }
-
