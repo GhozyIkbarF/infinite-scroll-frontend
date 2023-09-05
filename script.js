@@ -1,10 +1,3 @@
-import process from 'process';
-const accessKey = process.env.JS_APP_UNSPLASH_ACCESS_KEY
-const bashURL = "https://api.unsplash.com";
-const headers = {
-  Authorization: `Client-ID ${accessKey}`,
-};
-
 const btn_to_top = document.getElementById("btn-to-top");
 const btn_search = document.getElementById("btn-search-photo");
 const imagesContainer = document.getElementById("imagesContainer");
@@ -19,21 +12,19 @@ btn_to_top.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   const wsy = window.scrollY;
   wsy > 150
-    ? (btn_to_top.style.bottom = "50px")
-    : (btn_to_top.style.bottom = "-70px");
+  ? (btn_to_top.style.bottom = "50px")
+  : (btn_to_top.style.bottom = "-70px");
   
   if (!isLoaded && ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-200)) getPhoto() 
 });
 
+const bashURL = "http://localhost:5000";
 async function getPhoto() {
   try {
     isLoaded = true;
     const response = await fetch(
-      `${bashURL}/photos/?page=${currentPage}&per_page=5`, {
+      `${bashURL}/${currentPage}`, {
         method: 'GET',
-        headers: {
-          Authorization: `Client-ID ${accessKey}`,
-        }
       }
     );
     const photo = await response.json();
