@@ -32,7 +32,7 @@ body {
   background-color: #d6d6d6;
 }
 
-.btn-to-top {
+.buttonToTop {
   position: fixed;
   z-index: 100;
   width: 60px;

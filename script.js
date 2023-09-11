@@ -1,37 +1,39 @@
-const btn_to_top = document.getElementById("btn-to-top");
-const btn_search = document.getElementById("btn-search-photo");
+const buttonToTop = document.getElementById("buttonToTop");
+const buttonSearch = document.getElementById("search");
 const imagesContainer = document.getElementById("imagesContainer");
 let currentPage = 1;
 let isLoaded = false;
 
-btn_search.addEventListener("click", () => getPhoto());
-btn_to_top.addEventListener("click", () => {
+buttonSearch.addEventListener("click", () => getPhoto());
+buttonToTop.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
 
 window.addEventListener("scroll", () => {
-  const wsy = window.scrollY;
-  wsy > 150
-  ? (btn_to_top.style.bottom = "50px")
-  : (btn_to_top.style.bottom = "-70px");
-  
-  if (!isLoaded && ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-200)) getPhoto() 
+  const scrollY = window.scrollY;
+  scrollY > 150
+    ? (buttonToTop.style.bottom = "50px")
+    : (buttonToTop.style.bottom = "-70px");
+
+  if (
+    !isLoaded &&
+    window.innerHeight + scrollY >= document.body.offsetHeight - 200
+  )
+    getPhoto();
 });
 
 const bashURL = "http://localhost:5000";
 async function getPhoto() {
   try {
     isLoaded = true;
-    const response = await fetch(
-      `${bashURL}/${currentPage}`, {
-        method: 'GET',
-      }
-    );
+    const response = await fetch(`${bashURL}/${currentPage}`, {
+      method: "GET",
+    });
     const photo = await response.json();
     imageElement(photo);
   } catch (error) {
     throw error;
-  }finally {
+  } finally {
     isLoaded = false;
   }
 }
@@ -45,4 +47,3 @@ function imageElement(images) {
   });
   currentPage++;
 }
-
