@@ -22,7 +22,7 @@ window.addEventListener("scroll", () => {
     getPhoto();
 });
 
-const bashURL = "http://localhost:5000";
+const bashURL = "https://infinite-scroll-backend.vercel.app";
 async function getPhoto() {
   try {
     isLoaded = true;
