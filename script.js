@@ -18,7 +18,7 @@ window.addEventListener("scroll", () => {
   if (!isLoaded && ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-200)) getPhoto() 
 });
 
-const bashURL = "http://localhost:5000";
+const bashURL = "https://infinite-scroll-backend.vercel.app";
 async function getPhoto() {
   try {
     isLoaded = true;
